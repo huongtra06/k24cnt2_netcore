@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+
+    var products = ViewData["products"]
+        as List<Lhtralesson3review.Models.LHTRAProduct>;
+
+    int stt = 0;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Year</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in products)
+                {
+                    stt++;
+
+                    <tr>
+                        <td>@stt</td>
+                        <td>@item.LHTRAProductId</td>
+                        <td>@item.LHTRAProductName</td>
+                        <td>@item.LHTRAYearRelease</td>
+                        <td>@item.LHTRAProductNumber.ToString("N0") đ</td>
+                        <td>
+                            <a href="#">Xem</a>
+                            <a href="#">Sửa</a>
+                            <a href="#">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <th colspan="6">
+                        Tổng số sản phẩm: @products.Count
+                    </th>
+                </tr>
+            </tfoot>
+
+        </table>
+    </div>
+</div>

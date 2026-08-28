@@ -8,7 +8,7 @@ namespace LHTRAMVC.Controllers
         // Trang chủ
         public IActionResult Index()
         {
-            var products = ProductData.GetProducts();
+              var products = ProductData.GetProducts();
 
             return View(products);
         }

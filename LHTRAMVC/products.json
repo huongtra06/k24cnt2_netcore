@@ -1,0 +1,23 @@
+[
+  {
+    "Id": 1,
+    "Name": "B\u00E1nh Trung Thu",
+    "Price": 150000,
+    "CreatedAt": "2026-08-26T10:59:16.639663+07:00",
+    "ImageUrl": "/images/banhtrungthu.jpg"
+  },
+  {
+    "Id": 2,
+    "Name": "B\u00E1nh Sinh Nh\u1EADt",
+    "Price": 300000,
+    "CreatedAt": "2026-08-26T10:59:16.6449138+07:00",
+    "ImageUrl": "/images/banhsinhnhat.jpg"
+  },
+  {
+    "Id": 3,
+    "Name": "B\u00E1nh Cu\u1ED1n",
+    "Price": 50000,
+    "CreatedAt": "2026-08-26T10:59:16.6449213+07:00",
+    "ImageUrl": "/images/banhcuon.jpg"
+  }
+]
