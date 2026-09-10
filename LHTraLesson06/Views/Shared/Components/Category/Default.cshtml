@@ -1,0 +1,14 @@
+@model IEnumerable<LHTraLesson06.Models.Category>
+
+<div class="category-list">
+    @foreach (var item in Model)
+    {
+        <div class="category-item @(item.IsActive ? "active" : "inactive")">
+            <span class="category-dot"></span>
+            <span class="category-name">@item.CategoryName</span>
+            <span class="category-status">
+                @(item.IsActive ? "Đang bán" : "Tạm ẩn")
+            </span>
+        </div>
+    }
+</div>

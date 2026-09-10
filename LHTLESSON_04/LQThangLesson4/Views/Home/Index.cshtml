@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="container py-5">
+
+    <div class="hero-section shadow">
+
+        <div class="hero-content">
+
+            <span class="badge bg-success mb-3">
+                ASP.NET CORE MVC
+            </span>
+
+            <h1 class="display-4 fw-bold">
+                LQThangLesson4
+            </h1>
+
+            <p class="lead">
+                Bài thực hành quản lý tài khoản
+                bằng ASP.NET Core MVC .NET 10
+            </p>
+
+            <p>
+                Xin chào
+                <strong>@ViewBag.Name</strong>
+            </p>
+
+            <a asp-controller="TvCAccount"
+               asp-action="Index"
+               class="btn btn-success btn-lg px-4">
+
+                Xem danh sách tài khoản
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="row mt-5">
+
+        <div class="col-md-4">
+
+            <div class="card feature-card shadow-sm">
+
+                <div class="card-body text-center p-4">
+
+                    <h3>
+                        👤
+                    </h3>
+
+                    <h4>
+                        Danh sách
+                    </h4>
+
+                    <p class="text-muted">
+                        Hiển thị danh sách các tài khoản
+                        trong hệ thống.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card feature-card shadow-sm">
+
+                <div class="card-body text-center p-4">
+
+                    <h3>
+                        ✏️
+                    </h3>
+
+                    <h4>
+                        Quản lý
+                    </h4>
+
+                    <p class="text-muted">
+                        Thêm, sửa và xóa thông tin
+                        tài khoản.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card feature-card shadow-sm">
+
+                <div class="card-body text-center p-4">
+
+                    <h3>
+                        🔎
+                    </h3>
+
+                    <h4>
+                        Tìm kiếm
+                    </h4>
+
+                    <p class="text-muted">
+                        Tìm kiếm và lọc tài khoản
+                        nhanh chóng.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

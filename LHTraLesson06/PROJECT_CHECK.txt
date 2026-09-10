@@ -1,0 +1,12 @@
+LHTraLesson06 - CLEAN PROJECT
+
+Namespace/project name: LHTraLesson06
+Target framework: net10.0
+ViewComponent: CategoryViewComponent
+Default URL (HTTP): http://localhost:5045/
+Default URL (HTTPS): https://localhost:7052/
+
+Build in Visual Studio:
+1. Open LHTraLesson06.slnx (or LHTraLesson06.csproj).
+2. Restore NuGet packages if prompted.
+3. Run with the HTTP profile if the local HTTPS developer certificate is not configured.
