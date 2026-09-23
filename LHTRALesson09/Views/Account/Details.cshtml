@@ -1,0 +1,33 @@
+@model Account
+@{
+    ViewData["Title"] = "Chi tiết tài khoản";
+}
+<div class="profile-card">
+    <div class="profile-head">
+        @if (!string.IsNullOrEmpty(Model.Avatar))
+        {
+            <img class="profile-avatar" src="@Model.Avatar" alt="Avatar" />
+        }
+        else
+        {
+            <div class="profile-avatar fallback">@Model.FullName.Substring(0,1).ToUpper()</div>
+        }
+        <div>
+            <span class="eyebrow">ACCOUNT #@Model.Id</span>
+            <h1>@Model.FullName</h1>
+            <p>@Model.Email</p>
+        </div>
+    </div>
+    <div class="detail-grid">
+        <div><small>Số điện thoại</small><strong>@Model.Phone</strong></div>
+        <div><small>Giới tính</small><strong>@Model.Gender</strong></div>
+        <div><small>Ngày sinh</small><strong>@Model.BirthDate.ToString("dd/MM/yyyy")</strong></div>
+        <div><small>Địa chỉ</small><strong>@Model.Address</strong></div>
+        <div><small>Facebook</small><strong>@(Model.FacebookUrl ?? "Chưa cập nhật")</strong></div>
+        <div><small>Ngày tạo</small><strong>@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</strong></div>
+    </div>
+    <div class="form-actions">
+        <a class="btn light" asp-action="Index">Back to List</a>
+        <a class="btn primary" asp-action="Edit" asp-route-id="@Model.Id">Sửa tài khoản</a>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "LHTRALesson09": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54226;http://localhost:54227"
+    }
+  }
+}

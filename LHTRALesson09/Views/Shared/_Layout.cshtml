@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LHTRALesson09</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <div class="brand-icon">LHT</div>
+        <div>
+            <strong>LHTRALesson09</strong>
+            <small>ASP.NET Core MVC - Account Manager</small>
+        </div>
+    </div>
+    <nav>
+        <a asp-controller="Account" asp-action="Index">Danh sách</a>
+        <a asp-controller="Account" asp-action="Create">Tạo tài khoản</a>
+    </nav>
+</header>
+
+<main class="container">
+    @if (TempData["Success"] is string message)
+    {
+        <div class="alert success">@message</div>
+    }
+
+    @RenderBody()
+</main>
+
+<footer>
+    <span>LHTRALesson09</span> · ASP.NET Core MVC · Quản lý tài khoản
+</footer>
+
+<script src="~/js/site.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

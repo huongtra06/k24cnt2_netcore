@@ -1,0 +1,55 @@
+@model Account
+<div asp-validation-summary="ModelOnly" class="validation"></div>
+
+<div class="form-grid">
+    <div class="field">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" placeholder="Nhập họ và tên" />
+        <span asp-validation-for="FullName"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" placeholder="example@gmail.com" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Phone"></label>
+        <input asp-for="Phone" placeholder="09xxxxxxxx" />
+        <span asp-validation-for="Phone"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Address"></label>
+        <input asp-for="Address" placeholder="Tỉnh/Thành phố..." />
+        <span asp-validation-for="Address"></span>
+    </div>
+    <div class="field">
+        <label asp-for="BirthDate"></label>
+        <input asp-for="BirthDate" type="date" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Gender"></label>
+        <select asp-for="Gender">
+            <option>Nam</option>
+            <option>Nữ</option>
+            <option>Khác</option>
+        </select>
+        <span asp-validation-for="Gender"></span>
+    </div>
+    <div class="field">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" placeholder="Tối thiểu 6 ký tự" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div class="field">
+        <label asp-for="FacebookUrl"></label>
+        <input asp-for="FacebookUrl" placeholder="https://facebook.com/..." />
+        <span asp-validation-for="FacebookUrl"></span>
+    </div>
+    <div class="field full">
+        <label>Ảnh đại diện</label>
+        <input type="file" name="AvatarFile" accept=".jpg,.jpeg,.png,.webp" onchange="previewAvatar(this)" />
+        <small>JPG/PNG/WEBP, tối đa 2MB.</small>
+        <img id="avatarPreview" class="preview" src="@Model.Avatar" style="@(string.IsNullOrEmpty(Model.Avatar) ? "display:none" : "")" />
+    </div>
+</div>

@@ -1,0 +1,28 @@
+[
+  {
+    "Id": 1,
+    "FullName": "Nguy\u1EC5n V\u0103n An",
+    "Email": "nguyenvanan@gmail.com",
+    "Phone": "0901234567",
+    "Address": "H\u00E0 N\u1ED9i",
+    "Avatar": null,
+    "BirthDate": "2000-05-12T00:00:00",
+    "Gender": "Kh\u00E1c",
+    "Password": null,
+    "FacebookUrl": "https://facebook.com/",
+    "CreatedAt": "2026-09-23T10:00:00"
+  },
+  {
+    "Id": 2,
+    "FullName": "Tr\u1EA7n Th\u1ECB Mai",
+    "Email": "tranthimai@gmail.com",
+    "Phone": "0912345678",
+    "Address": "H\u1EA3i Ph\u00F2ng",
+    "Avatar": null,
+    "BirthDate": "2001-08-20T00:00:00",
+    "Gender": "N\u1EEF",
+    "Password": null,
+    "FacebookUrl": "https://facebook.com/",
+    "CreatedAt": "2026-09-23T10:00:00"
+  }
+]

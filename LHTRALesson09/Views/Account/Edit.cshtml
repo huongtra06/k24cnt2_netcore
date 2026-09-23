@@ -1,0 +1,16 @@
+@model Account
+@{
+    ViewData["Title"] = "Edit Account";
+}
+<div class="page-title"><div><span class="eyebrow">UPDATE</span><h1>Chỉnh sửa tài khoản</h1><p>Cập nhật thông tin hồ sơ.</p></div></div>
+<form asp-action="Edit" method="post" enctype="multipart/form-data" class="card form-card">
+    <input type="hidden" asp-for="Id" />
+    <partial name="_Form" model="Model" />
+    <div class="form-actions">
+        <a class="btn light" asp-action="Index">Hủy</a>
+        <button class="btn primary" type="submit">Lưu thay đổi</button>
+    </div>
+</form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

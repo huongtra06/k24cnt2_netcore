@@ -1,0 +1,74 @@
+@model IEnumerable<Account>
+@{
+    ViewData["Title"] = "Quản lý tài khoản";
+}
+
+<section class="hero">
+    <div>
+        <span class="eyebrow">CREATE ACCOUNT</span>
+        <h1>Quản lý tài khoản</h1>
+        <p>Tạo, tìm kiếm, xem chi tiết, chỉnh sửa và xóa hồ sơ người dùng.</p>
+    </div>
+    <a class="btn primary" asp-action="Create">＋ Tạo tài khoản</a>
+</section>
+
+<div class="stats">
+    <div class="stat"><span>Tổng tài khoản</span><b>@ViewBag.Total</b></div>
+    <div class="stat"><span>Nam</span><b>@ViewBag.Male</b></div>
+    <div class="stat"><span>Nữ</span><b>@ViewBag.Female</b></div>
+</div>
+
+<form method="get" class="filter">
+    <input name="keyword" value="@ViewBag.Keyword" placeholder="Tìm theo họ tên, email, số điện thoại..." />
+    <select name="gender">
+        <option>Tất cả</option>
+        <option selected="@(ViewBag.Gender == "Nam")">Nam</option>
+        <option selected="@(ViewBag.Gender == "Nữ")">Nữ</option>
+    </select>
+    <button class="btn dark" type="submit">Tìm kiếm</button>
+</form>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+    <th>Id</th><th>Họ và tên</th><th>Email</th><th>Số điện thoại</th>
+    <th>Giới tính</th><th>Ngày sinh</th><th>Thao tác</th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model)
+{
+<tr>
+    <td>#@item.Id</td>
+    <td>
+        <div class="person">
+            @if (!string.IsNullOrEmpty(item.Avatar))
+            {
+                <img src="@item.Avatar" alt="Avatar" />
+            }
+            else
+            {
+                <div class="avatar">@item.FullName.Substring(0,1).ToUpper()</div>
+            }
+            <strong>@item.FullName</strong>
+        </div>
+    </td>
+    <td>@item.Email</td>
+    <td>@item.Phone</td>
+    <td><span class="badge">@item.Gender</span></td>
+    <td>@item.BirthDate.ToString("dd/MM/yyyy")</td>
+    <td class="actions">
+        <a asp-action="Details" asp-route-id="@item.Id">Xem</a>
+        <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+        <a class="danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+    </td>
+</tr>
+}
+@if (!Model.Any())
+{
+<tr><td colspan="7" class="empty">Không tìm thấy tài khoản phù hợp.</td></tr>
+}
+</tbody>
+</table>
+</div>
