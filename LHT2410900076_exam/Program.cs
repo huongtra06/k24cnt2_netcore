@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Kết nối Database
-builder.Services.AddDbContext<LHTEmployees2410900076Context>(options =>
+builder.Services.AddDbContext<LHTEmployee2410900076Context>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("LHTEmployee")));
 

@@ -1,59 +1,32 @@
 @model LHT2410900076_exam.Models.LHTEmployee
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết sinh viên";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>LHTEmployee</h4>
+<div class="container mt-4">
+    <h1>Chi tiết sinh viên</h1>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTName)
-        </dd>
+        <dt class="col-sm-3">Họ và tên</dt>
+        <dd class="col-sm-9">@Model.LHTName</dd>
+
+        <dt class="col-sm-3">Giới tính</dt>
+        <dd class="col-sm-9">@Model.LHTGender</dd>
+
+        <dt class="col-sm-3">Ngày sinh</dt>
+        <dd class="col-sm-9">@Model.LHTBirthDay?.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.LHTEmail</dd>
+
+        <dt class="col-sm-3">Số điện thoại</dt>
+        <dd class="col-sm-9">@Model.LHTPhone</dd>
+
+        <dt class="col-sm-3">Trạng thái</dt>
+        <dd class="col-sm-9">@(Model.LHTActive ? "Đang hoạt động" : "Không hoạt động")</dd>
     </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTGender)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTBirthDay)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTBirthDay)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTEmail)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTPhone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTPhone)
-        </dd>
-    </dl>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LHTActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LHTActive)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
 </div>

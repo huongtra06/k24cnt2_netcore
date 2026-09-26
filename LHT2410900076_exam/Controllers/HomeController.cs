@@ -8,7 +8,7 @@ namespace LHT2410900076_exam.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction(nameof(LHTAbout));
         }
 
         public IActionResult Privacy()
