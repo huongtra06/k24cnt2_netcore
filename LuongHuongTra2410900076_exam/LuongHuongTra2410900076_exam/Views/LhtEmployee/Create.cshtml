@@ -1,0 +1,17 @@
+@model LhtEmployee
+@{
+    ViewData["Title"] = "Thêm sinh viên";
+}
+<h2>Thêm sinh viên</h2>
+<form asp-action="Create" method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3"><label asp-for="LhtName" class="form-label"></label><input asp-for="LhtName" class="form-control" /><span asp-validation-for="LhtName" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="LhtGender" class="form-label"></label><input asp-for="LhtGender" class="form-control" /><span asp-validation-for="LhtGender" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="LhtBirthDay" class="form-label"></label><input asp-for="LhtBirthDay" class="form-control" /><span asp-validation-for="LhtBirthDay" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="LhtEmail" class="form-label"></label><input asp-for="LhtEmail" class="form-control" /><span asp-validation-for="LhtEmail" class="text-danger"></span></div>
+    <div class="mb-3"><label asp-for="LhtPhone" class="form-label"></label><input asp-for="LhtPhone" class="form-control" /><span asp-validation-for="LhtPhone" class="text-danger"></span></div>
+    <div class="form-check mb-3"><input asp-for="LhtActive" class="form-check-input" /><label asp-for="LhtActive" class="form-check-label"></label></div>
+    <button type="submit" class="btn btn-primary">Lưu</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

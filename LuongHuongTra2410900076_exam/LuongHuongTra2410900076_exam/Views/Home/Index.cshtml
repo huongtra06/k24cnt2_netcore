@@ -1,0 +1,12 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="py-5">
+    <h1 class="display-6">Hệ thống quản lý sinh viên</h1>
+    <p class="lead">Ứng dụng ASP.NET Core MVC.</p>
+    <div class="mt-4 d-flex gap-2">
+        <a asp-controller="Home" asp-action="LhtAbout" class="btn btn-primary">Thông tin sinh viên</a>
+        <a asp-controller="LhtEmployee" asp-action="Index" class="btn btn-outline-primary">Danh sách sinh viên</a>
+    </div>
+</div>

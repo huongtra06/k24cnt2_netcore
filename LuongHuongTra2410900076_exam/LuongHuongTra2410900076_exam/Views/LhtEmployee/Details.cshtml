@@ -1,0 +1,15 @@
+@model LhtEmployee
+@{
+    ViewData["Title"] = "Thông tin sinh viên";
+}
+<h2>Thông tin sinh viên</h2>
+<table class="table table-bordered mt-3">
+    <tr><th>Họ và tên</th><td>@Model.LhtName</td></tr>
+    <tr><th>Giới tính</th><td>@Model.LhtGender</td></tr>
+    <tr><th>Ngày sinh</th><td>@Model.LhtBirthDay?.ToString("dd/MM/yyyy")</td></tr>
+    <tr><th>Email</th><td>@Model.LhtEmail</td></tr>
+    <tr><th>Số điện thoại</th><td>@Model.LhtPhone</td></tr>
+    <tr><th>Hoạt động</th><td>@(Model.LhtActive ? "Có" : "Không")</td></tr>
+</table>
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

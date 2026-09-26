@@ -1,0 +1,22 @@
+html {
+    font-size: 14px;
+}
+
+body {
+    min-height: 100vh;
+    background: #f8f9fa;
+    color: #212529;
+}
+
+.card,
+.table {
+    background: #fff;
+}
+
+.table th {
+    white-space: nowrap;
+}
+
+.btn {
+    border-radius: 6px;
+}

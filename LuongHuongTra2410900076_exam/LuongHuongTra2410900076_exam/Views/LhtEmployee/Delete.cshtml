@@ -1,0 +1,13 @@
+@model LhtEmployee
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+<h2>Xóa sinh viên</h2>
+<div class="alert alert-warning mt-3">Bạn có chắc muốn xóa sinh viên này?</div>
+<div class="mb-3"><strong>Họ và tên:</strong> @Model.LhtName</div>
+<div class="mb-3"><strong>Email:</strong> @Model.LhtEmail</div>
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>
