@@ -1,0 +1,29 @@
+@model LHT2410900076_exam.Models.LHTEmployee
+
+@{
+    ViewData["Title"] = "Xóa sinh viên";
+}
+
+<div class="container mt-4">
+    <h1>Xóa sinh viên</h1>
+    <div class="alert alert-warning">
+        Bạn có chắc muốn xóa sinh viên <strong>@Model.LHTName</strong> không?
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-3">Giới tính</dt>
+        <dd class="col-sm-9">@Model.LHTGender</dd>
+        <dt class="col-sm-3">Ngày sinh</dt>
+        <dd class="col-sm-9">@Model.LHTBirthDay?.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.LHTEmail</dd>
+        <dt class="col-sm-3">Số điện thoại</dt>
+        <dd class="col-sm-9">@Model.LHTPhone</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

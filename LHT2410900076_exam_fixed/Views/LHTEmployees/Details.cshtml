@@ -1,0 +1,32 @@
+@model LHT2410900076_exam.Models.LHTEmployee
+
+@{
+    ViewData["Title"] = "Chi tiết sinh viên";
+}
+
+<div class="container mt-4">
+    <h1>Chi tiết sinh viên</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Họ và tên</dt>
+        <dd class="col-sm-9">@Model.LHTName</dd>
+
+        <dt class="col-sm-3">Giới tính</dt>
+        <dd class="col-sm-9">@Model.LHTGender</dd>
+
+        <dt class="col-sm-3">Ngày sinh</dt>
+        <dd class="col-sm-9">@Model.LHTBirthDay?.ToString("dd/MM/yyyy")</dd>
+
+        <dt class="col-sm-3">Email</dt>
+        <dd class="col-sm-9">@Model.LHTEmail</dd>
+
+        <dt class="col-sm-3">Số điện thoại</dt>
+        <dd class="col-sm-9">@Model.LHTPhone</dd>
+
+        <dt class="col-sm-3">Trạng thái</dt>
+        <dd class="col-sm-9">@(Model.LHTActive ? "Đang hoạt động" : "Không hoạt động")</dd>
+    </dl>
+
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</div>
