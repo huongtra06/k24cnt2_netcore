@@ -1,0 +1,41 @@
+@using LHTraLesson12.Models
+@{
+    ViewData["Title"] = "Trang chủ";
+    var categories = ViewBag.Categories as List<Category> ?? new List<Category>();
+    var products = ViewBag.Products as List<Product> ?? new List<Product>();
+}
+<section class="hero mb-5">
+    <div class="hero-content">
+        <span class="hero-label">LHTra FASHION</span>
+        <h1>Phong cách<br />của riêng bạn.</h1>
+        <a asp-controller="Product" asp-action="Index" class="btn btn-dark rounded-pill px-4">Khám phá sản phẩm</a>
+    </div>
+    <div class="hero-fashion"><span>F</span></div>
+</section>
+<div class="section-head"><h2>Danh mục</h2><a asp-controller="Category" asp-action="Index">Quản lý</a></div>
+<div class="row g-3 mb-5">
+@foreach (var c in categories)
+{
+    var icon = c.Name.Contains("Quần") ? "👕" : c.Name.Contains("Túi") ? "👜" : c.Name.Contains("Giày") ? "👟" : c.Name.Contains("Váy") ? "👗" : c.Name.Contains("Áo") ? "🧥" : "⌚";
+    <div class="col-6 col-md-4 col-lg-2"><a class="category-tile" asp-controller="Product" asp-action="Index" asp-route-categoryId="@c.Id"><span>@icon</span><strong>@c.Name</strong></a></div>
+}
+</div>
+<div class="section-head"><h2>Sản phẩm mới</h2><a asp-controller="Product" asp-action="Index">Xem tất cả</a></div>
+<div class="row g-4">
+@foreach (var p in products)
+{
+    <div class="col-6 col-md-4 col-lg-3">
+        <article class="product-card h-100">
+            <a asp-controller="Product" asp-action="Details" asp-route-id="@p.Id" class="product-photo">
+                @if (!string.IsNullOrWhiteSpace(p.Image)) { <img src="@p.Image" alt="@p.Name" /> } else { <span>LHTra</span> }
+            </a>
+            <div class="p-3 p-lg-4">
+                <small>@p.Category?.Name</small>
+                <h5>@p.Name</h5>
+                <div class="product-price">@((p.SalePrice > 0 ? p.SalePrice : p.Price).ToString("N0")) ₫</div>
+            </div>
+        </article>
+    </div>
+}
+@if (!products.Any()) { <div class="col-12"><div class="empty-box">Chưa có sản phẩm</div></div> }
+</div>

@@ -1,0 +1,3 @@
+@model LHTraLesson12.Models.Category
+@{ ViewData["Title"] = Model.Name; }
+<div class="form-card small-form"><div class="category-icon large mb-3">✦</div><h1>@Model.Name</h1><p>@Model.Products.Count sản phẩm</p><p>@(Model.Status == 1 ? "Đang hoạt động" : "Tạm ẩn")</p><div class="form-actions"><a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark rounded-pill">Sửa</a><a asp-action="Index" class="btn btn-light rounded-pill">Quay lại</a></div></div>

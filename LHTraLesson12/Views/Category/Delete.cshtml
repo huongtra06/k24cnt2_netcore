@@ -1,0 +1,3 @@
+@model LHTraLesson12.Models.Category
+@{ ViewData["Title"] = "Xóa danh mục"; }
+<div class="confirm-card"><div class="category-icon large">✦</div><h1>Xóa danh mục</h1><h4>@Model.Name</h4><p>@Model.Products.Count sản phẩm</p>@if (Model.Products.Any()) { <div class="alert alert-warning rounded-4 border-0">Không thể xóa danh mục đang có sản phẩm.</div><a asp-action="Index" class="btn btn-dark rounded-pill px-4">Quay lại</a> } else { <form asp-action="Delete" method="post"><input type="hidden" asp-for="Id" /><button class="btn btn-danger rounded-pill px-4">Xóa</button><a asp-action="Index" class="btn btn-light rounded-pill">Hủy</a></form> }</div>

@@ -1,0 +1,10 @@
+@model IEnumerable<LHTraLesson12.Models.Category>
+@{ ViewData["Title"] = "Danh mục"; }
+<div class="page-head"><div><h1>Danh mục</h1><p>@Model.Count() danh mục</p></div><a asp-action="Create" class="btn btn-dark rounded-pill px-4">Thêm danh mục</a></div>
+<div class="row g-3">
+@foreach (var c in Model)
+{
+    var icon = c.Name.Contains("Quần") ? "👕" : c.Name.Contains("Túi") ? "👜" : c.Name.Contains("Giày") ? "👟" : c.Name.Contains("Váy") ? "👗" : c.Name.Contains("Áo") ? "🧥" : "⌚";
+    <div class="col-md-6 col-lg-4"><div class="category-admin"><div class="category-icon">@icon</div><div class="flex-grow-1"><h5>@c.Name</h5><span>@c.Products.Count sản phẩm</span></div><div class="category-links"><a asp-action="Edit" asp-route-id="@c.Id">Sửa</a><a class="danger" asp-action="Delete" asp-route-id="@c.Id">Xóa</a></div></div></div>
+}
+</div>

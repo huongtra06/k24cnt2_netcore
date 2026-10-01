@@ -1,0 +1,35 @@
+@model IEnumerable<LHTraLesson12.Models.Product>
+@{ ViewData["Title"] = "Sản phẩm"; }
+<div class="page-head"><div><h1>Sản phẩm</h1><p>@Model.Count() sản phẩm</p></div><a asp-action="Create" class="btn btn-dark rounded-pill px-4">Thêm sản phẩm</a></div>
+<form method="get" class="filter-panel mb-4">
+    <div class="row g-2">
+        <div class="col-md-6"><input name="search" value="@ViewBag.Search" class="form-control" placeholder="Tìm sản phẩm" /></div>
+        <div class="col-md-4"><select name="categoryId" asp-items="ViewBag.Categories" class="form-select"><option value="">Tất cả danh mục</option></select></div>
+        <div class="col-md-2"><button class="btn btn-dark w-100">Lọc</button></div>
+    </div>
+</form>
+<div class="row g-4">
+@foreach (var item in Model)
+{
+    <div class="col-6 col-md-4 col-lg-3">
+        <article class="product-card h-100">
+            <a asp-action="Details" asp-route-id="@item.Id" class="product-photo">
+                @if (!string.IsNullOrWhiteSpace(item.Image)) { <img src="@item.Image" alt="@item.Name" /> } else { <span>LHTra</span> }
+                @if (item.SalePrice > 0 && item.SalePrice < item.Price) { <b class="sale-tag">SALE</b> }
+            </a>
+            <div class="p-3">
+                <div class="d-flex justify-content-between gap-2"><small>@item.Category?.Name</small><small class="status @(item.Status == 1 ? "on" : "off")">@(item.Status == 1 ? "Đang bán" : "Ngừng bán")</small></div>
+                <h5>@item.Name</h5>
+                <div class="product-price">@((item.SalePrice > 0 ? item.SalePrice : item.Price).ToString("N0")) ₫</div>
+                @if (item.SalePrice > 0 && item.SalePrice < item.Price) { <small class="old-price">@item.Price.ToString("N0") ₫</small> }
+                <div class="product-actions mt-3">
+                    <a asp-action="Details" asp-route-id="@item.Id">Xem</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Sửa</a>
+                    <a class="danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
+                </div>
+            </div>
+        </article>
+    </div>
+}
+@if (!Model.Any()) { <div class="col-12"><div class="empty-box">Không tìm thấy sản phẩm</div></div> }
+</div>
