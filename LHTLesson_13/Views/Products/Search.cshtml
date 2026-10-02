@@ -1,0 +1,74 @@
+﻿@model List<(int Id, string Name, string Price)>
+
+@{
+    ViewData["Title"] = "Tìm kiếm sản phẩm";
+}
+
+<div class="products">
+
+    <h1>Tìm kiếm sản phẩm</h1>
+
+    <form asp-controller="Products"
+          asp-action="Search"
+          method="get">
+
+        <input type="text"
+               name="keyword"
+               class="form-control"
+               placeholder="Nhập tên sản phẩm..."
+               value="@ViewBag.Keyword" />
+
+        <br />
+
+        <button type="submit" class="btn btn-primary">
+            Tìm kiếm
+        </button>
+
+    </form>
+
+    @if (!string.IsNullOrWhiteSpace(ViewBag.Keyword))
+    {
+        <h3 style="margin-top:30px;">
+            Kết quả tìm kiếm: @ViewBag.Keyword
+        </h3>
+
+        @if (Model.Count > 0)
+        {
+            <div class="product-list">
+
+                @foreach (var product in Model)
+                {
+                    <div class="product">
+
+                        <div class="product-img">
+                            @product.Name
+                        </div>
+
+                        <h3>
+                            @product.Name
+                        </h3>
+
+                        <p>
+                            @product.Price
+                        </p>
+
+                        <a asp-controller="Products"
+                           asp-action="Details"
+                           asp-route-id="@product.Id">
+                            Xem sản phẩm
+                        </a>
+
+                    </div>
+                }
+
+            </div>
+        }
+        else
+        {
+            <p style="margin-top:30px;">
+                Không tìm thấy sản phẩm.
+            </p>
+        }
+    }
+
+</div>

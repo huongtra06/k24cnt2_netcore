@@ -1,0 +1,79 @@
+﻿@using LHTLesson_13.Controllers
+@model List<(int Id, string Name, string Price, string Image)>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm";
+}
+<div class="product">
+
+    <div class="product-img">
+        🧸
+    </div>
+
+    <h3>Mô hình Gundam</h3>
+    <p>350.000 VNĐ</p>
+
+    <a asp-controller="Products"
+       asp-action="Details"
+       asp-route-id="1">
+        Xem sản phẩm
+    </a>
+
+</div>
+
+
+<!-- SẢN PHẨM 2 -->
+<div class="product">
+
+    <div class="product-img">
+        🐰
+    </div>
+
+    <h3>Mô hình One Piece</h3>
+    <p>450.000 VNĐ</p>
+
+    <a asp-controller="Products"
+       asp-action="Details"
+       asp-route-id="2">
+        Xem sản phẩm
+    </a>
+
+</div>
+
+
+<!-- SẢN PHẨM 3 -->
+<div class="product">
+
+    <div class="product-img">
+        🐻
+    </div>
+
+    <h3>Mô hình Dragon Ball</h3>
+    <p>390.000 VNĐ</p>
+
+    <a asp-controller="Products"
+       asp-action="Details"
+       asp-route-id="3">
+        Xem sản phẩm
+    </a>
+
+</div>
+
+
+<!-- SẢN PHẨM 4 -->
+<div class="product">
+
+    <div class="product-img">
+        🐱
+    </div>
+
+    <h3>Mô hình Naruto</h3>
+    <p>420.000 VNĐ</p>
+
+    <a asp-controller="Products"
+       asp-action="Details"
+       asp-route-id="4">
+        Xem sản phẩm
+    </a>
+
+</div>

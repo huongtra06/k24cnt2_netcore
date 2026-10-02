@@ -1,0 +1,126 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* MENU */
+
+.menu {
+    background: #29283f;
+    padding: 0 8%;
+}
+
+    .menu a {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: 16px 20px;
+        font-size: 16px;
+    }
+
+        .menu a:hover {
+            background: #e83e8c;
+        }
+
+/* NỘI DUNG */
+
+main {
+    min-height: 600px;
+}
+
+/* DANH SÁCH SẢN PHẨM */
+
+.products {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+    .products h1 {
+        text-align: center;
+        margin-bottom: 35px;
+    }
+
+/* 2 CỘT */
+
+.product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* SẢN PHẨM */
+
+.product {
+    background: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+    .product:hover {
+        box-shadow: 0 5px 15px #ccc;
+    }
+
+.product-img {
+    height: 170px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product p {
+    color: #e83e8c;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.product a {
+    display: inline-block;
+    background: #29283f;
+    color: white;
+    text-decoration: none;
+    padding: 9px 18px;
+    border-radius: 5px;
+}
+
+    .product a:hover {
+        background: #e83e8c;
+    }
+
+/* FOOTER */
+
+footer {
+    background: #29283f;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+/* ĐIỆN THOẠI */
+
+@media (max-width: 700px) {
+
+    .menu {
+        padding: 0;
+    }
+
+        .menu a {
+            display: block;
+            text-align: center;
+        }
+
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+}

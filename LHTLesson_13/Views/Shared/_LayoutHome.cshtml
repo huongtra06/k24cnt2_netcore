@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - LHTLesson_13</title>
+
+    <link rel="stylesheet"
+          href="~/css/layoutHome.css" />
+</head>
+
+<body>
+
+    <nav class="menu">
+
+        <a asp-controller="Products"
+           asp-action="Index">
+            Danh sách sản phẩm
+        </a>
+
+        <a asp-controller="Products"
+           asp-action="Search">
+            Tìm kiếm sản phẩm
+        </a>
+
+        <a asp-controller="Products"
+           asp-action="Hot">
+            Danh sách yêu thích
+        </a>
+
+        <a asp-controller="Products"
+           asp-action="About">
+            Giới thiệu
+        </a>
+
+    </nav>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        Copyright © 2026 - LHTLesson_13
+    </footer>
+
+</body>
+</html>
