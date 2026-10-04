@@ -1,0 +1,9 @@
+@model IEnumerable<LHTLesson14.Models.Product>
+@{
+    ViewData["Title"] = "Bánh nổi bật";
+    Layout = "~/Views/Shared/_LHTLayoutHome.cshtml";
+}
+<section class="page-head"><div class="container"><span class="eyebrow">LỰA CHỌN NỔI BẬT</span><h1>Bánh nổi bật</h1><p>Những bánh đang được quan tâm.</p></div></section>
+<section class="section-block"><div class="container"><div class="product-grid">
+@foreach(var x in Model){var price=x.SalePrice>0?x.SalePrice:x.Price;<article class="product-card"><a class="product-image" asp-action="Details" asp-route-id="@x.Id"><img src="~/images/@x.Image" alt="@x.Name" onerror="this.src='/images/icon1.img';" /><span class="sale-badge">NỔI BẬT</span></a><div class="product-body"><small>@x.Category?.Name</small><h3>@x.Name</h3><p>@x.Description</p><div class="product-footer"><strong>@price.ToString("N0")đ</strong><a asp-action="Details" asp-route-id="@x.Id">Chi tiết</a></div></div></article>}
+</div></div></section>

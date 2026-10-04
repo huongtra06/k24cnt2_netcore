@@ -1,0 +1,5 @@
+@model LHTLesson14.Models.Category
+@{ ViewData["Title"]="Xóa danh mục"; }
+<div class="admin-card confirm-card"><div class="confirm-icon">!</div><h2>Xóa danh mục?</h2><p>Bạn đang chọn <strong>@Model.Name</strong>. Danh mục có @Model.Products.Count sản phẩm.</p>
+@if(Model.Products.Any()){<div class="alert alert-warning">Danh mục đang có sản phẩm nên không thể xóa.</div>}
+<form asp-action="Delete" method="post"><input asp-for="Id" type="hidden" /><button class="danger-btn" disabled="@Model.Products.Any()">Xác nhận xóa</button><a class="btn-light-custom" asp-action="Index">Quay lại</a></form></div>

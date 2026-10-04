@@ -1,0 +1,5 @@
+@model LHTLesson14.Models.Product
+@{ ViewData["Title"]="Xóa sản phẩm"; }
+<div class="admin-card confirm-card"><div class="confirm-icon">!</div><h2>Xóa sản phẩm?</h2><p>Bạn có chắc muốn xóa <strong>@Model.Name</strong> khỏi hệ thống?</p>
+<div class="delete-preview"><img src="~/images/@Model.Image" onerror="this.src='/images/icon1.img';" /><div><strong>@Model.Name</strong><span>@Model.Category?.Name</span></div></div>
+<form asp-action="Delete" method="post"><input asp-for="Id" type="hidden" /><button class="danger-btn">Xác nhận xóa</button><a class="btn-light-custom" asp-action="Index">Hủy</a></form></div>

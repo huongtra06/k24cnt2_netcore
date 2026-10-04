@@ -1,0 +1,22 @@
+@model LHTLesson14.Models.Product
+@{
+    ViewData["Title"] = Model.Name;
+    Layout = "~/Views/Shared/_LHTLayoutHome.cshtml";
+    var price = Model.SalePrice > 0 ? Model.SalePrice : Model.Price;
+}
+<section class="page-head"><div class="container"><span class="eyebrow">@Model.Category?.Name</span><h1>@Model.Name</h1></div></section>
+<section class="section-block">
+<div class="container">
+    <div class="detail-card">
+        <div class="detail-image"><img src="~/images/@Model.Image" alt="@Model.Name" onerror="this.src='/images/icon1.img';" /></div>
+        <div class="detail-info">
+            <span class="detail-category">@Model.Category?.Name</span>
+            <h2>@Model.Name</h2>
+            @if(Model.SalePrice>0){<div class="old-price">@Model.Price.ToString("N0")đ</div>}
+            <div class="detail-price">@price.ToString("N0")đ</div>
+            <p>@Model.Description</p>
+            <div class="detail-actions"><a class="btn-main" href="tel:0900000000">Liên hệ mua hàng</a><a class="btn-ghost-dark" asp-action="Index">← Quay lại</a></div>
+        </div>
+    </div>
+</div>
+</section>

@@ -1,0 +1,8 @@
+@model IEnumerable<LHTLesson14.Models.Product>
+@{ ViewData["Title"]="Quản lý sản phẩm"; var cats=(IEnumerable<LHTLesson14.Models.Category>)ViewBag.Categories; }
+<div class="admin-card">
+<div class="card-heading"><div><h2>Danh sách sản phẩm</h2><p>@Model.Count() sản phẩm trong hệ thống.</p></div><a class="admin-btn" asp-action="Create">+ Thêm sản phẩm</a></div>
+<form method="get" class="admin-filter"><input name="keyword" value="@ViewBag.Keyword" placeholder="Tìm sản phẩm..." /><select name="categoryId"><option value="">Tất cả danh mục</option>@foreach(var c in cats){<option value="@c.Id" selected="@(ViewBag.CategoryId?.ToString()==c.Id.ToString())">@c.Name</option>}</select><button class="admin-btn">Tìm kiếm</button></form>
+<div class="table-wrap"><table class="admin-table"><thead><tr><th>Sản phẩm</th><th>Danh mục</th><th>Giá</th><th>Trạng thái</th><th>Thao tác</th></tr></thead><tbody>
+@foreach(var x in Model){<tr><td><div class="table-product"><img src="~/images/@x.Image" onerror="this.src='/images/icon1.img';" /><div><strong>@x.Name</strong><small>#@x.Id</small></div></div></td><td>@x.Category?.Name</td><td><strong>@((x.SalePrice>0?x.SalePrice:x.Price).ToString("N0"))đ</strong>@if(x.SalePrice>0){<small class="old">@x.Price.ToString("N0")đ</small>}</td><td><span class="status @(x.Status==1?"on":"off")">@(x.Status==1?"Đang bán":"Đang ẩn")</span></td><td class="actions"><a asp-action="Edit" asp-route-id="@x.Id">Sửa</a><form asp-action="ToggleStatus" asp-route-id="@x.Id" method="post"><button>@(x.Status==1?"Ẩn":"Hiện")</button></form><a class="danger" asp-action="Delete" asp-route-id="@x.Id">Xóa</a></td></tr>}
+</tbody></table></div></div>

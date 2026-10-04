@@ -1,0 +1,24 @@
+@using LHTLesson14.Models
+@{
+    ViewData["Title"] = "Dashboard";
+    var latest = (IEnumerable<Product>)ViewBag.LatestProducts;
+    var stats = (IEnumerable<dynamic>)ViewBag.CategoryStats;
+}
+<div class="stats-grid">
+    <div class="stat-box"><span>◫</span><div><small>Tổng sản phẩm</small><strong>@ViewBag.ProductCount</strong></div></div>
+    <div class="stat-box"><span>✓</span><div><small>Đang bán</small><strong>@ViewBag.ActiveProductCount</strong></div></div>
+    <div class="stat-box"><span>◇</span><div><small>Danh mục</small><strong>@ViewBag.CategoryCount</strong></div></div>
+    <div class="stat-box"><span>▣</span><div><small>Banner</small><strong>@ViewBag.BannerCount</strong></div></div>
+</div>
+<div class="dashboard-columns">
+    <section class="admin-card">
+        <div class="card-heading"><div><h2>Sản phẩm mới nhất</h2><p>Cập nhật gần đây</p></div><a class="admin-btn" asp-controller="Products" asp-action="Index">Quản lý</a></div>
+        <div class="mini-products">
+        @foreach(var p in latest){<div class="mini-product"><img src="~/images/@p.Image" onerror="this.src='/images/icon1.img';" /><div><strong>@p.Name</strong><small>@p.Category?.Name</small></div><b>@((p.SalePrice>0?p.SalePrice:p.Price).ToString("N0"))đ</b></div>}
+        </div>
+    </section>
+    <section class="admin-card">
+        <div class="card-heading"><div><h2>Tổng quan</h2><p>Thông tin cơ sở dữ liệu</p></div></div>
+        <div class="overview-list"><div><span>Giá trung bình</span><strong>@(((decimal)ViewBag.AveragePrice).ToString("N0"))đ</strong></div><div><span>Bài viết</span><strong>@ViewBag.BlogCount</strong></div><div><span>Danh mục nhiều sản phẩm</span><strong>@(stats.FirstOrDefault()?.Name ?? "Chưa có")</strong></div></div>
+    </section>
+</div>

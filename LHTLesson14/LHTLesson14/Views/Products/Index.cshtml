@@ -1,0 +1,31 @@
+@using LHTLesson14.Models
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Bánh";
+    Layout = "~/Views/Shared/_LHTLayoutHome.cshtml";
+    var categories = (IEnumerable<Category>)ViewBag.Categories;
+}
+<section class="page-head"><div class="container"><span class="eyebrow">LHT CAKE</span><h1>Bánh</h1><p>Chọn mẫu bánh phù hợp cho sinh nhật và những dịp đặc biệt.</p></div></section>
+<section class="section-block">
+<div class="container">
+    <form method="get" class="filter-panel">
+        <div class="filter-search"><input name="keyword" value="@ViewBag.Keyword" placeholder="Tìm tên bánh..." /></div>
+        <select name="categoryId"><option value="">Tất cả danh mục</option>@foreach(var c in categories){<option value="@c.Id" selected="@(ViewBag.CategoryId?.ToString()==c.Id.ToString())">@c.Name</option>}</select>
+        <input type="number" name="minPrice" value="@ViewBag.MinPrice" placeholder="Giá từ" />
+        <input type="number" name="maxPrice" value="@ViewBag.MaxPrice" placeholder="Giá đến" />
+        <button class="btn-main" type="submit">Lọc bánh</button>
+    </form>
+    <div class="result-row"><span>@Model.Count() bánh</span><a asp-action="Index">Xóa bộ lọc</a></div>
+    <div class="product-grid">
+    @foreach(var x in Model)
+    {
+        var price=x.SalePrice>0?x.SalePrice:x.Price;
+        <article class="product-card">
+            <a class="product-image" asp-action="Details" asp-route-id="@x.Id"><img src="~/images/@x.Image" alt="@x.Name" onerror="this.src='/images/icon1.img';" />@if(x.SalePrice>0){<span class="sale-badge">SALE</span>}</a>
+            <div class="product-body"><small>@x.Category?.Name</small><h3>@x.Name</h3><p>@x.Description</p><div class="product-footer"><strong>@price.ToString("N0")đ</strong><a asp-action="Details" asp-route-id="@x.Id">Chi tiết</a></div></div>
+        </article>
+    }
+    </div>
+    @if(!Model.Any()){<div class="empty-state"><h3>Không tìm thấy mẫu bánh</h3><p>Hãy thử thay đổi từ khóa hoặc bộ lọc.</p></div>}
+</div>
+</section>

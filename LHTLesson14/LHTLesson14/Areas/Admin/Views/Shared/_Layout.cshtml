@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>@ViewData["Title"] - LQT Admin</title>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/admin-modern.css" asp-append-version="true" />
+</head>
+<body class="admin-body">
+<aside class="admin-sidebar">
+    <a class="admin-brand" asp-area="Admin" asp-controller="Dashboard" asp-action="Index"><span>LQ</span><div><strong>LQT Store</strong><small>QUẢN TRỊ</small></div></a>
+    <div class="admin-profile"><div class="admin-avatar">LQ</div><div><strong>Quản trị viên</strong><small>Administrator</small></div></div>
+    <nav>
+        <small class="nav-title">TỔNG QUAN</small>
+        <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">▦ <span>Dashboard</span></a>
+        <small class="nav-title">QUẢN LÝ</small>
+        <a asp-area="Admin" asp-controller="Products" asp-action="Index">◫ <span>Sản phẩm</span></a>
+        <a asp-area="Admin" asp-controller="Categories" asp-action="Index">◇ <span>Danh mục</span></a>
+        <small class="nav-title">HỆ THỐNG</small>
+        <a asp-area="" asp-controller="Home" asp-action="Index">⌂ <span>Về cửa hàng</span></a>
+    </nav>
+</aside>
+<div class="admin-main">
+<header class="admin-topbar"><div><button class="menu-btn" onclick="document.body.classList.toggle('sidebar-collapsed')">☰</button><strong>@ViewData["Title"]</strong></div><a asp-area="" asp-controller="Home" asp-action="Index">Xem cửa hàng →</a></header>
+<main class="admin-content">
+    <div class="admin-page-title"><div><h1>@ViewData["Title"]</h1><p>Quản lý dữ liệu LQT Store</p></div></div>
+    @if(TempData["Success"] != null){<div class="alert alert-success">@TempData["Success"]</div>}
+    @if(TempData["Error"] != null){<div class="alert alert-danger">@TempData["Error"]</div>}
+    @RenderBody()
+</main>
+<footer class="admin-footer">© 2026 LQT Store</footer>
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

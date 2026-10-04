@@ -1,0 +1,76 @@
+@using LHTLesson14.Models
+@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_LHTLayoutHome.cshtml";
+    var products = (IEnumerable<Product>)ViewBag.FeaturedProducts;
+    var categories = (IEnumerable<Category>)ViewBag.Categories;
+    var banners = (IEnumerable<Banner>)ViewBag.ActiveBanners;
+}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <span class="eyebrow">LHT CAKE · BÁNH KEM 2026</span>
+            <h1>Bánh kem mới.<br /><strong>Trải nghiệm tốt hơn.</strong></h1>
+            <p>Khám phá bánh kem, bánh sinh nhật, bánh mousse và bánh mini được chọn lọc cho học tập, công việc và giải trí.</p>
+            <div class="hero-actions">
+                <a class="btn-main" asp-controller="Products" asp-action="Index">Mua sắm ngay</a>
+                <a class="btn-ghost" asp-controller="Products" asp-action="Hots">Xem nổi bật</a>
+            </div>
+        </div>
+        <div class="hero-card">
+            <span>ƯU ĐÃI HÔM NAY</span>
+            <strong>Giảm đến 20%</strong>
+            <small>Cho nhiều sản phẩm bánh kem</small>
+            <a asp-controller="Products" asp-action="Index">Khám phá →</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-block">
+    <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">KHÁM PHÁ</span><h2>Danh mục sản phẩm</h2></div><a asp-controller="Products" asp-action="Index">Xem tất cả →</a></div>
+        <div class="category-grid">
+            @foreach (var c in categories)
+            {
+                <a class="category-card" asp-controller="Products" asp-action="Index" asp-route-categoryId="@c.Id">
+                    <span class="category-icon">◈</span><strong>@c.Name</strong><small>@c.Description</small>
+                </a>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="section-block products-section">
+    <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">GỢI Ý CHO BẠN</span><h2>Bánh mới</h2></div><a asp-controller="Products" asp-action="Index">Xem tất cả →</a></div>
+        <div class="product-grid">
+            @foreach (var x in products)
+            {
+                var price = x.SalePrice > 0 ? x.SalePrice : x.Price;
+                <article class="product-card">
+                    <a class="product-image" asp-controller="Products" asp-action="Details" asp-route-id="@x.Id">
+                        <img src="~/images/@x.Image" alt="@x.Name" onerror="this.src='/images/icon1.img';" />
+                        @if (x.SalePrice > 0) { <span class="sale-badge">SALE</span> }
+                    </a>
+                    <div class="product-body">
+                        <small>@x.Category?.Name</small>
+                        <h3>@x.Name</h3>
+                        <p>@x.Description</p>
+                        <div class="product-footer"><strong>@price.ToString("N0")đ</strong><a asp-controller="Products" asp-action="Details" asp-route-id="@x.Id">Chi tiết</a></div>
+                    </div>
+                </article>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="benefit-section">
+    <div class="container">
+        <div class="benefit-grid">
+            <div><span>✓</span><div><strong>Bánh tươi mỗi ngày</strong><small>Nguyên liệu chọn lọc</small></div></div>
+            <div><span>↗</span><div><strong>Giao bánh nhanh</strong><small>Đúng giờ</small></div></div>
+            <div><span>↺</span><div><strong>Đặt bánh dễ dàng</strong><small>Tư vấn tận tình</small></div></div>
+            <div><span>♡</span><div><strong>Tư vấn đặt bánh</strong><small>Luôn sẵn sàng</small></div></div>
+        </div>
+    </div>
+</section>

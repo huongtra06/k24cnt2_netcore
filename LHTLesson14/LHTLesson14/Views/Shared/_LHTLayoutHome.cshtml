@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LQT Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/lqt-store.css" asp-append-version="true" />
+</head>
+<body>
+<header class="store-header">
+    <div class="top-strip">Miễn phí giao hàng cho đơn từ 500.000đ · Hỗ trợ khách hàng 24/7</div>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="brand" asp-controller="Home" asp-action="Index">
+                <span class="brand-icon">LQ</span><span>LQT <b>STORE</b></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#storeNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="storeNav">
+                <ul class="navbar-nav mx-auto gap-lg-2">
+                    <li><a class="nav-link" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                    <li><a class="nav-link" asp-controller="Products" asp-action="Index">Sản phẩm</a></li>
+                    <li><a class="nav-link" asp-controller="Products" asp-action="Hots">Nổi bật</a></li>
+                    <li><a class="nav-link" asp-controller="Products" asp-action="Search">Tìm kiếm</a></li>
+                    <li><a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Quản trị</a></li>
+                </ul>
+                <a class="header-search" asp-controller="Products" asp-action="Search">⌕</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>@RenderBody()</main>
+
+<footer class="store-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4"><h4>LHT CAKE</h4><p>Cửa hàng bánh kem hiện đại với các sản phẩm chất lượng, giá hợp lý và trải nghiệm mua sắm đơn giản.</p></div>
+            <div class="col-lg-4"><h5>Liên kết</h5><a asp-controller="Products" asp-action="Index">Tất cả sản phẩm</a><a asp-controller="Products" asp-action="Hots">Sản phẩm nổi bật</a><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Trang quản trị</a></div>
+            <div class="col-lg-4"><h5>Hỗ trợ</h5><p>Hotline: 0900 000 000</p><p>Email: support@lqtstore.vn</p></div>
+        </div>
+        <div class="footer-bottom">© 2026 LQT Store · Lesson 14</div>
+    </div>
+</footer>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,9 @@
+@model LHTLesson14.Models.Product
+@{ ViewData["Title"]="Thêm sản phẩm"; }
+<div class="admin-card form-card"><h2>Thêm sản phẩm</h2><p>Nhập đầy đủ thông tin sản phẩm.</p>
+<form asp-action="Create" method="post"><div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-grid"><div><label asp-for="Name"></label><input asp-for="Name" /><span asp-validation-for="Name" class="text-danger"></span></div><div><label asp-for="CategoryId"></label><select asp-for="CategoryId" asp-items="ViewBag.Categories"><option value="">-- Chọn danh mục --</option></select><span asp-validation-for="CategoryId" class="text-danger"></span></div>
+<div><label asp-for="Price"></label><input asp-for="Price" type="number" step="1000" /></div><div><label asp-for="SalePrice"></label><input asp-for="SalePrice" type="number" step="1000" /></div>
+<div><label>Tên file ảnh</label><input asp-for="Image" placeholder="iphone15.jpg" /></div><div><label>Trạng thái</label><select asp-for="Status"><option value="1">Đang bán</option><option value="0">Ẩn</option></select></div>
+<div class="full"><label asp-for="Description"></label><textarea asp-for="Description"></textarea></div></div>
+<div class="form-actions"><button class="admin-btn">Lưu sản phẩm</button><a class="btn-light-custom" asp-action="Index">Hủy</a></div></form></div>

@@ -1,0 +1,9 @@
+@model LHTLesson14.Models.Category
+@{ ViewData["Title"]="Thêm danh mục"; }
+<div class="admin-card form-card"><h2>Thêm danh mục</h2><p>Nhập thông tin danh mục mới.</p>
+<form asp-action="Create" method="post"><div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<label asp-for="Name"></label><input asp-for="Name" /><span asp-validation-for="Name" class="text-danger"></span>
+<label asp-for="Description"></label><textarea asp-for="Description"></textarea>
+<input asp-for="Status" type="hidden" value="1" />
+<div class="form-actions"><button class="admin-btn">Lưu danh mục</button><a class="btn-light-custom" asp-action="Index">Hủy</a></div>
+</form></div>
