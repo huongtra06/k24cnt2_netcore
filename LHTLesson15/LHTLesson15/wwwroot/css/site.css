@@ -1,0 +1,64 @@
+html {
+    font-size: 14px;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #f7f9f8;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar-brand {
+    letter-spacing: .3px;
+}
+
+.nav-link {
+    transition: opacity .2s ease;
+}
+
+.nav-link:hover {
+    opacity: .8;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #eaf7ef 0%, #ffffff 100%);
+    border: 1px solid #d8eadf;
+}
+
+.info-card {
+    border: 1px solid #e7ece9;
+}
+
+.icon-box,
+.login-icon {
+    font-size: 2rem;
+}
+
+.card {
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+code {
+    color: #198754;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 .2rem rgba(25, 135, 84, .15);
+}

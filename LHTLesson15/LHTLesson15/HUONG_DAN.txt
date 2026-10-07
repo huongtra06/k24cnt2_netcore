@@ -1,0 +1,25 @@
+LHTLesson15 - Session & TempData
+=================================
+
+1. Mở file LHTLesson15.slnx bằng Visual Studio.
+2. Không chép thư mục .vs, bin hoặc obj từ project cũ vào project này.
+3. Build -> Rebuild Solution.
+4. Chạy bằng Ctrl + F5 hoặc nút Run.
+5. Trang đăng nhập: /Home/Login
+
+Tài khoản thực hành:
+Username: huongtra
+Password: 123456
+
+Chức năng:
+- Session: lưu username sau khi đăng nhập.
+- Logout: xóa username khỏi Session.
+- TempData: truyền thông báo qua RedirectToAction.
+- Layout hiển thị trạng thái đăng nhập.
+- Bootstrap giao diện gọn, dễ nộp bài.
+
+Nếu Visual Studio vẫn báo lỗi SelfHostWebServer:
+- Đóng Visual Studio hoàn toàn.
+- Xóa thư mục .vs, bin, obj của thư mục project đang mở.
+- Mở trực tiếp LHTLesson15.slnx trong file ZIP đã giải nén.
+- Không mở lại project cũ cùng lúc.
